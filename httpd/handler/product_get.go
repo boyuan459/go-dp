@@ -1,7 +1,7 @@
 package handler
 
 import (
-	"dp/platform/product"
+	"dp/model/product"
 
 	"github.com/gin-gonic/gin"
 )
