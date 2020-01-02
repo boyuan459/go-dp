@@ -1,20 +1,14 @@
 package product
 
 import (
-	"dp/entity"
-	"dp/model"
+	"dp/entities"
+
+	"github.com/jinzhu/gorm"
 )
-
-type Getter interface {
-	GetAll() []Product
-}
-
-type Setter interface {
-	Add(p Product)
-}
 
 // Product model
 type Product struct {
+	db *gorm.DB
 }
 
 // type List struct {
@@ -35,12 +29,19 @@ type Product struct {
 // 	return c.Products
 // }
 
-func FindAll() ([]entity.Product, error) {
-	db, err := model.GetDB()
-	if err != nil {
-		return nil, err
+// New Product
+func New(db *gorm.DB) *Product {
+	return &Product{
+		db: db,
 	}
-	var products []entity.Product
-	db.Find(&products)
+}
+
+func (p *Product) Init() {
+	p.db.AutoMigrate(&entities.Product{})
+}
+
+func (p *Product) FindAll() ([]entities.Product, error) {
+	var products []entities.Product
+	p.db.Find(&products)
 	return products, nil
 }

@@ -1,8 +1,10 @@
-package entity
+package entities
+
+import "github.com/jinzhu/gorm"
 
 // Product entity
 type Product struct {
-	ID       int `gorm:"primary_key, AUTO_INCREMENT"`
+	gorm.Model
 	Title    string
 	Name     string
 	Price    float64
