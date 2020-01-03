@@ -1,13 +1,12 @@
 package product
 
 import (
-	"dp/api/product"
-
-	"github.com/gin-gonic/gin"
+	"dp/component"
+	"dp/httpd/handler/product"
 )
 
-func Routes(router *gin.Engine) {
-	pRoute := router.Group("/product")
+func Routes() {
+	pRoute := component.Router.Group("/product")
 	{
 		pRoute.GET("/", product.Get())
 	}
