@@ -1,3 +1,5 @@
 package constants
 
-const DB = "db"
+// JWTSigningKey jwt signing key
+const JWTSigningKey = "1wsdr4ea"
+const JWTIssuer = "go-cms"
