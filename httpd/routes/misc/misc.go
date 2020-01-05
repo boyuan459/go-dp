@@ -6,5 +6,6 @@ import (
 )
 
 func Routes() {
-	component.Router.POST("/login", user.Login)
+	component.Router.POST("/login", user.Login())
+	component.Router.POST("/signup", user.Create("user"))
 }

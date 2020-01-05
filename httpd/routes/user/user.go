@@ -8,6 +8,6 @@ import (
 func Routes() {
 	uRoute := component.Router.Group("/user")
 	{
-		uRoute.POST("/", user.Create())
+		uRoute.POST("", user.Create(""))
 	}
 }

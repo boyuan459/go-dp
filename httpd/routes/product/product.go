@@ -8,6 +8,6 @@ import (
 func Routes() {
 	pRoute := component.Router.Group("/product")
 	{
-		pRoute.GET("/", product.Get())
+		pRoute.GET("", product.Get())
 	}
 }
