@@ -1,4 +1,4 @@
-package middleware
+package auth
 
 import (
 	"dp/auth/jwt"
@@ -28,6 +28,5 @@ func JWT() gin.HandlerFunc {
 			}
 			c.Set("claims", claims)
 		}
-		c.Next()
 	}
 }
